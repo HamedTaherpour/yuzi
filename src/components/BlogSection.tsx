@@ -66,7 +66,7 @@ export const BlogSection = () => {
               {posts.map((post) => (
                 <CarouselItem
                   key={post.id}
-                  className="basis-[70%] first:ml-4 last:ml-4"
+                  className="basis-[70%] first:ml-4"
                 >
                   <Card className="overflow-hidden h-full app-base-transform hover:ring-1 ring-primary">
                     <CardContent className="p-2">

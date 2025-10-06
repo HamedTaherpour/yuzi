@@ -32,7 +32,7 @@ export const SpecialDealsSection = () => {
           {discounted.map((product) => (
             <CarouselItem
               key={product.id}
-              className="basis-2/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 first:ml-4 last:ml-4"
+              className="basis-2/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 first:ml-4"
             >
               <DiscountProductCard product={product} />
             </CarouselItem>
