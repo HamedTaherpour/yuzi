@@ -23,7 +23,6 @@ const itemVariants = {
     scale: 1,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
     },
   },
 };
@@ -60,7 +59,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
     <motion.div variants={itemVariants}>
       <motion.div
         whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.2 }}
       >
         <Card className="cursor-pointer app-base-transform hover:ring-1 ring-primary">
           <CardContent className="py-2 px-2">
@@ -69,7 +68,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
               <motion.div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${category.color}`}
                 whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.5 }}
               >
                 <IconComponent className="w-4 h-4" />
               </motion.div>

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { Star, MapPin, ArrowLeft, Eye, ArrowRight } from "lucide-react";
 import { topVendors } from "@/data/vendors";
+import type { Product } from "@/data/products";
 
 const headerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -108,7 +109,7 @@ interface VendorCardProps {
     avatar: string;
     specialty: string;
     description: string;
-    products: any[];
+    products: Product[];
   };
 }
 
