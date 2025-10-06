@@ -1,0 +1,17 @@
+[
+  {"id":"vendor_01","name":"کارگاه زری","logo":"/img/logo.png","rating":4.7,
+   "featuredProducts":["prod_001","prod_003"]},
+  {"id":"vendor_02","name":"هنرکده سفال نقش","logo":"/img/logo.png","rating":4.5,
+   "featuredProducts":["prod_002"]},
+  {"id":"vendor_03","name":"نگین فیروزه","logo":"/img/logo.png","rating":4.8,
+   "featuredProducts":["prod_003"]},
+  {"id":"vendor_04","name":"چوبین هنر","logo":"/img/logo.png","rating":4.6,
+   "featuredProducts":[]},
+  {"id":"vendor_05","name":"پارچه‌بافان قشقایی","logo":"/img/logo.png","rating":4.9,
+   "featuredProducts":[]},
+  {"id":"vendor_06","name":"مسگران زنجان","logo":"/img/logo.png","rating":4.4,
+   "featuredProducts":[]}
+]
+
+
+

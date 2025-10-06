@@ -1,0 +1,56 @@
+[
+  {
+    "id": "prod_001",
+    "title": "گلیم دستباف منطقهٔ آذربایجان",
+    "slug": "gilim-azarbaijan",
+    "vendor": {"id":"vendor_01","name":"کارگاه زری"},
+    "price": 1200000,
+    "currency": "IRR",
+    "images": ["/img/category/womens-leather-bag.png", "/img/category/wrist-watch.png"],
+    "videos": [],
+    "description": "توضیح و داستان پشت اثر گلیم دستباف با طرح‌های اصیل محلی.",
+    "tags": ["گلیم","دستباف","هدیه"],
+    "category": "منسوجات و فرش",
+    "region": "آذربایجان شرقی",
+    "isLimited": true,
+    "remainingCount": 3,
+    "createdAt": "2025-08-01"
+  },
+  {
+    "id": "prod_002",
+    "title": "سفال دستی نقش برجسته",
+    "slug": "sofal-naqsh",
+    "vendor": {"id":"vendor_02","name":"هنرکده سفال نقش"},
+    "price": 850000,
+    "currency": "IRR",
+    "images": ["/img/category/beauty-products.png"],
+    "videos": [],
+    "description": "سفال دست‌ساز با طرح برجسته و لعاب سنتی.",
+    "tags": ["سفال","دستی","دکور"],
+    "category": "سرامیک و سفال",
+    "region": "اصفهان",
+    "isLimited": false,
+    "remainingCount": 0,
+    "createdAt": "2025-07-12"
+  },
+  {
+    "id": "prod_003",
+    "title": "زیورآلات نقره دست‌ساز با سنگ فیروزه",
+    "slug": "silver-firoozeh",
+    "vendor": {"id":"vendor_03","name":"نگین فیروزه"},
+    "price": 2400000,
+    "currency": "IRR",
+    "images": ["/img/category/womens-clothing.png"],
+    "videos": [],
+    "description": "گردنبند نقره با نگین فیروزه نیشابور.",
+    "tags": ["زیورآلات","نقره","فیروزه"],
+    "category": "زیورآلات",
+    "region": "خراسان رضوی",
+    "isLimited": true,
+    "remainingCount": 5,
+    "createdAt": "2025-09-01"
+  }
+]
+
+
+

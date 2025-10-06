@@ -1,0 +1,21 @@
+{
+  "menu": [
+    {"title": "خانه", "href": "/"},
+    {"title": "دسته‌ها", "children": [
+      {"title": "سرامیک و سفال", "href": "/c/ceramics"},
+      {"title": "منسوجات و فرش", "href": "/c/textiles"},
+      {"title": "زیورآلات", "href": "/c/jewelry"},
+      {"title": "چوب و فلز", "href": "/c/wood-metal"},
+      {"title": "هنرهای تجسمی", "href": "/c/visual-arts"},
+      {"title": "تورها", "href": "/c/tours"},
+      {"title": "اقامت", "href": "/c/stays"},
+      {"title": "تجربه‌ها", "href": "/c/experiences"}
+    ]},
+    {"title": "کلکسیون‌ها", "href": "/collections"},
+    {"title": "وبلاگ", "href": "/blog"},
+    {"title": "همکاری", "href": "/partners"}
+  ]
+}
+
+
+
