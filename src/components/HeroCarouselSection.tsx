@@ -65,6 +65,7 @@ export const HeroCarouselSection = () => {
                     alt={slide.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 100vw"
                     priority={index === 0}
                   />
                   {/* Overlay - Bottom to Top Gradient */}

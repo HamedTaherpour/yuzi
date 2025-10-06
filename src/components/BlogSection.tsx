@@ -77,6 +77,7 @@ export const BlogSection = () => {
                           alt={post.title}
                           fill
                           className="object-cover rounded-md"
+                          sizes="(max-width: 640px) 70vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       </div>
 
