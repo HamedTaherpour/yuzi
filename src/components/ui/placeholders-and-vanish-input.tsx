@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
 import { SearchIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function PlaceholdersAndVanishInput({
   placeholders,
@@ -41,122 +41,43 @@ export function PlaceholdersAndVanishInput({
     };
   }, [placeholders, handleVisibilityChange, startAnimation]);
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  type PixelPointRaw = { x: number; y: number; color: [number, number, number, number] };
-  type PixelPoint = { x: number; y: number; r: number; color: string };
-  const newDataRef = useRef<PixelPoint[]>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState("");
-  const [animating, setAnimating] = useState(false);
-
-  const draw = useCallback(() => {
-    if (!inputRef.current) return;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = 800;
-    canvas.height = 800;
-    ctx.clearRect(0, 0, 800, 800);
-    const computedStyles = getComputedStyle(inputRef.current);
-
-    const fontSize = parseFloat(computedStyles.getPropertyValue("font-size"));
-    ctx.font = `${fontSize * 2}px ${computedStyles.fontFamily}`;
-    ctx.fillStyle = "#FFF";
-    ctx.fillText(value, 16, 40);
-
-    const imageData = ctx.getImageData(0, 0, 800, 800);
-    const pixelData = imageData.data;
-    const newData: PixelPointRaw[] = [];
-
-    for (let t = 0; t < 800; t++) {
-      const i = 4 * t * 800;
-      for (let n = 0; n < 800; n++) {
-        const e = i + 4 * n;
-        if (
-          pixelData[e] !== 0 &&
-          pixelData[e + 1] !== 0 &&
-          pixelData[e + 2] !== 0
-        ) {
-          newData.push({
-            x: n,
-            y: t,
-            color: [
-              pixelData[e],
-              pixelData[e + 1],
-              pixelData[e + 2],
-              pixelData[e + 3],
-            ],
-          });
-        }
-      }
-    }
-
-    newDataRef.current = newData.map(({ x, y, color }) => ({
-      x,
-      y,
-      r: 1,
-      color: `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${color[3]})`,
-    }));
-  }, [value]);
-
-  useEffect(() => {
-    draw();
-  }, [value, draw]);
-
   return (
-    <form
+    <div
       onClick={onClick}
       className={cn(
-        "w-full relative max-w-xl mx-auto cursor-pointer bg-white dark:bg-zinc-800 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
-        value && "bg-gray-50"
+        "relative cursor-pointer selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-white px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none md:text-sm"
       )}
     >
-      <canvas
-        className={cn(
-          "absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
-          !animating ? "opacity-0" : "opacity-100"
-        )}
-        ref={canvasRef}
-      />
-
       <div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
         <AnimatePresence mode="wait">
-          {!value && (
-            <motion.p
-              initial={{
-                y: 5,
-                opacity: 0,
-              }}
-              key={`current-placeholder-${currentPlaceholder}`}
-              animate={{
-                y: 0,
-                opacity: 1,
-              }}
-              exit={{
-                y: -15,
-                opacity: 0,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "linear",
-              }}
-              className="dark:text-zinc-500 text-sm sm:text-base font-normal text-neutral-500 pr-4 sm:pr-12 w-[calc(100%-2rem)] truncate"
-            >
-              {placeholders[currentPlaceholder]}
-            </motion.p>
-          )}
+          <motion.p
+            initial={{
+              y: 5,
+              opacity: 0,
+            }}
+            key={`current-placeholder-${currentPlaceholder}`}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            exit={{
+              y: -15,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "linear",
+            }}
+            className="dark:text-zinc-500 text-sm sm:text-base font-normal text-neutral-500 pr-10 w-full truncate text-right"
+          >
+            {placeholders[currentPlaceholder]}
+          </motion.p>
         </AnimatePresence>
       </div>
 
-      <button
-        disabled={!value}
-        type="submit"
-        className="absolute left-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100 bg-black dark:bg-zinc-900 dark:disabled:bg-zinc-800 transition duration-200 flex items-center justify-center"
-      >
-        <SearchIcon className="size-4" />
-      </button>
-    </form>
+      <div className="absolute right-4 top-1/2 z-50 -translate-y-1/2  transition duration-200 flex items-center justify-center pointer-events-none">
+        <SearchIcon className="size-4 text-secondary" />
+      </div>
+    </div>
   );
 }

@@ -64,7 +64,11 @@ export const products: Product[] = [
     price: 1200000,
     currency: "تومان",
     category: "jewelry",
-    images: ["/img/category/jewelry.jpeg"],
+    images: [
+      "/img/category/jewelry.jpeg",
+      "/img/vendor-avatars/metalwork-shop.png",
+      "/img/vendor-avatars/pottery-workshop.png"
+    ],
     hasVideo: true,
     videoCount: 1,
     rating: 4.9,

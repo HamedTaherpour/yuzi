@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Menu, Search, User, LogIn } from "lucide-react";
+import { Menu, User, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   CommandDialog,
@@ -16,6 +15,7 @@ import {
 } from "@/components/ui/command";
 import { products } from "@/data/products";
 import Image from "next/image";
+import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,6 +50,14 @@ export const Header = () => {
     persistRecent(next);
   };
 
+  const searchPlaceholders = [
+    "جستجو در صنایع دستی ایرانی...",
+    "به دنبال فرش دستباف می‌گردید؟",
+    "سفال، سرامیک و خاتم‌کاری",
+    "جواهرات و زیورآلات سنتی",
+    "محصولات چوبی و فلزی",
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 py-3">
@@ -75,16 +83,10 @@ export const Header = () => {
 
           {/* Center - Search */}
           <div className="flex-1 max-w-sm">
-            <div className="relative">
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="button"
-                role="search"
-                placeholder="جستجو در محصولات..."
-                className="pr-10 pl-4 text-sm text-left cursor-text"
-                onClick={() => setIsSearchOpen(true)}
-              />
-            </div>
+            <PlaceholdersAndVanishInput
+              placeholders={searchPlaceholders}
+              onClick={() => setIsSearchOpen(true)}
+            />
           </div>
 
           {/* Left side - User Profile/Login */}
